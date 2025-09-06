@@ -1,13 +1,20 @@
 [build]
   publish = "build/client"
   command = "pnpm run build"
+  functions = "netlify/functions"
 
 [build.environment]
   NODE_VERSION = "18"
 
+# SSR을 위한 서버 함수로 모든 요청 라우팅
+[[redirects]]
+  from = "/assets/*"
+  to = "/assets/:splat"
+  status = 200
+
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/.netlify/functions/server"
   status = 200
 
 [[headers]]
