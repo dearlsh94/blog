@@ -39,7 +39,7 @@ export default function HomePage() {
 
 function ArrowButton({ children }: {children: ReactNode}) {
   return (
-    <a href='/brand' className={styles.arrowButton}>
+    <a href='/articles' className={styles.arrowButton}>
       {children} →
     </a>
   );

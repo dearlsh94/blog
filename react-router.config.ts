@@ -45,10 +45,9 @@ export default {
   ssr: true,
   prerender: () => [
     '/',
-    '/brand',
-    "/robots.txt",
-    "/rss.xml",
-    "/articles",
+    '/robots.txt',
+    '/rss.xml',
+    '/articles',
     ...articlePaths
   ],
   presets: [vercelPreset()],

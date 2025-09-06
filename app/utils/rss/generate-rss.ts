@@ -20,7 +20,7 @@ export function generateRss(
       <link>${link}</link>
       <language>${lang}</language>
       <ttl>60</ttl>
-      <atom:link href="https://${origin}.com/rss.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="https://treefeely.com/rss.xml" rel="self" type="application/rss+xml" />
       ${entries
     .map(
       (entry) => `

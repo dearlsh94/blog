@@ -91,7 +91,6 @@ module.exports = {
   ],
 
   rules: {
-    // Jbee
     'object-curly-spacing': ['error', 'always'],
     'no-multiple-empty-lines': [
       'error',

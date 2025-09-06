@@ -18,7 +18,7 @@ export function OpenGraphTemplate({ title, date }: Props) {
       }}
     >
       <img
-        src="https://jbee.io/img/open-graph-template.png"
+        src="https://treefeely.com/img/open-graph-template.png"
         alt=""
         width="1280px"
         height="720px"

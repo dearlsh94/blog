@@ -1,13 +1,12 @@
 export default {
-  origin: 'jbee.io',
-  site: 'https://jbee.io',
+  origin: 'treefeely',
+  site: 'https://treefeely.com',
   author: {
-    displayName: 'Jbee',
-    twitter: 'jbee37142',
+    displayName: 'Ethan',
   },
   seo: {
-    title: 'Jbee.io',
-    name: 'Jbee.io',
+    title: 'treefeely',
+    name: 'treefeely',
     description: 'Articles are contributed, mostly about the web, but also the author\'s own thoughts; writing is not their profession, but they retire to write fragrant pieces.',
   },
   articles: {
@@ -17,27 +16,23 @@ export default {
   },
   content: {
     directory: 'content',
-    source: 'https://github.com/jbee37142/jbee.io/edit/main/content/',
+    source: 'https://github.com/dearlsh94/blog/edit/main/content/',
   },
   image: {
-    main: '/main-image.jpg', // public
+    main: '/main-image.png', // public
     extensions: ['**/*.png', '**/*.jpg', '**/*.jpeg'],
   },
   ga: {
-    id: 'G-DNVPN56ZPP' // G-XXXXXXXXXX
+    id: 'G-TPFQF6SGEH' // G-XXXXXXXXXX
   },
   comments: {
-    repo: 'JaeYeopHan/jbee.io-comments',
+    repo: 'dearlsh94/blog-comments',
   },
   heroText: `
-  글을 쓰고 공유합니다. 전문적으로 배우지 않았지만 향기로운 글을 쓰기 위해 퇴고합니다. 주로 개인적인 생각을 정리하며 가끔 웹을 소재로 쓰곤 합니다. 제가 쓴 글이 누군가에게 울림이 되길 바라며 9년째 블로그를 운영하고 있습니다. 문제 해결은 문제를 어떻게 추상화하여 정의하느냐로 결정된다고 생각합니다. 정확한 진단이 있어야 올바른 처방을 할 수 있듯이 문제를 명확히 하는데 투자하며 How보다 What에 관심이 많습니다. 프로그래밍은 제가 가진 문제 해결 도구 중 하나입니다. 단 코드없이 문제를 해결하려 하고 최후의 수단으로 코드를 꺼냅니다. 꾸준함이 가져다 주는 결과를 믿고 실천합니다. 매일 아침, 러닝을 하고 조금씩 매일 책을 읽고 출근길엔 한 문단 이상 생각을 정리합니다. 교육이 사회에 존재하는 많은 문제를 해결할 수 있다고 생각합니다. 어떻게 교육하는지 보단 무엇을 교육해야 하고 어떤 환경을 제공해야 할지에 관심이 많습니다. 다른 모습의 학교가 창조되길 바라며 지금과 다른 교육이 중심인 마을을 만들고 싶습니다. 지속 가능성을 고민합니다. 소프트웨어 설계 뿐만 아니라 프로세스, 시스템, 문화에 대해 고민하곤 합니다. 개발 생태계에도 관심이 많아 9년째 프런트엔드 개발 컨퍼런스를 운영하고 있습니다. 멀리는 해양 생태계가 지속 가능하길 바라며 언젠가 이것에 기여하는 일을 하고 싶습니다.
+  더 따뜻하고 편리한 세상이 되기를 바라며 개발자로 일하고 있는 이승환(Ethan)입니다. 종종 글을 씁니다.
   `,
   contacts: {
-    github: 'https://github.com/jbee37142',
-    linkedin: 'https://www.linkedin.com/in/jbee37142',
-    twitter: 'https://twitter.com/jbee37142',
-    resume: 'https://docs.google.com/document/d/1NBCuW5DVscjbbaqfj2IkFRhTXzEdPTsPv5zchDXc_-M/edit?usp=sharing',
-    instagram: 'https://instagram.com/diver.jbee',
-    youtube: 'https://www.youtube.com/@ssoyeop',
+    github: 'https://github.com/dearlsh94',
+    linkedin: 'https://www.linkedin.com/in/dearlsh94',
   }
 };

@@ -1,4 +1,4 @@
-import LogoImage from './logo.png'
+import LogoImage from './logo.png';
 
 interface LogoProps {
   size: number;
