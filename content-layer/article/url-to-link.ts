@@ -83,6 +83,7 @@ export function urlToLink() {
       // Replace the node with the new nodes
       if (parts.length > 0 && parent && typeof index === 'number') {
         parent.children.splice(index, 1, ...parts);
+
         return [SKIP, index];
       }
     });

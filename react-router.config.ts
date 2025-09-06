@@ -1,6 +1,6 @@
-import type { Config } from "@react-router/dev/config";
+import type { Config } from '@react-router/dev/config';
 import { vercelPreset } from '@vercel/react-router/vite';
-import console from "node:console";
+import console from 'node:console';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -20,12 +20,11 @@ const manifestContent = fs.readFileSync(manifestPath, 'utf-8');
 const manifest: Manifest = JSON.parse(manifestContent) as Manifest;
 const articles = JSON.parse(manifest.articles) as Article[]
 
-
 // Process each article from manifest to create prerender paths
 const articlePaths = articles.map((article: Article) => {
   try {
     if (!article.category) {
-      console.warn(`Warning: Missing required fields in article:`, {
+      console.warn('Warning: Missing required fields in article:', {
         category: article.category,
         permalink: article.permalink,
         title: article.title
@@ -34,9 +33,11 @@ const articlePaths = articles.map((article: Article) => {
 
     const category = encodeURIComponent(article.category || '');
     const slug = encodeURIComponent(article.permalink || article.title || '');
+
     return `/articles/${category}/${slug}`;
   } catch (error) {
-    console.error(`Error processing article:`, error);
+    console.error('Error processing article:', error);
+
     return '';
   }
 }).filter((path: string) => path !== '');
