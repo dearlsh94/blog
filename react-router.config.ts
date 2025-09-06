@@ -1,5 +1,4 @@
 import type { Config } from '@react-router/dev/config';
-import { vercelPreset } from '@vercel/react-router/vite';
 import console from 'node:console';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -51,5 +50,4 @@ export default {
     '/articles',
     ...articlePaths
   ],
-  presets: [vercelPreset()],
 } satisfies Config;
