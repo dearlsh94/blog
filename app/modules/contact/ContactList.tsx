@@ -1,6 +1,6 @@
 import { SVGIcon } from '~/components/icon/SVGIcon';
-import * as styles from './styles.css';
 import BlogConfig from '../../../blog.config';
+import * as styles from './styles.css';
 
 export function ContactList() {
   return (
@@ -10,9 +10,6 @@ export function ContactList() {
       </Anchor>
       <Anchor label="Linkedin 링크" href={BlogConfig.contacts.linkedin}>
         <SVGIcon.LinkedIn />
-      </Anchor>
-      <Anchor label="X 링크" href={BlogConfig.contacts.twitter}>
-        <SVGIcon.X />
       </Anchor>
     </div>
   )
