@@ -5,7 +5,8 @@ export const root = style([flex('column'), gap(1)]);
 
 export const post = style({
   fontSize: '1rem',
-  lineHeight: 1.7,
+  lineHeight: 1.2,
+  whiteSpace: 'pre-line',
   wordWrap: 'break-word',
   wordBreak: 'keep-all',
   margin: 0,
