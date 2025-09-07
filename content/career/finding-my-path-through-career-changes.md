@@ -1,6 +1,6 @@
 ---
 title: '내 이직에 대하여'
-date: 2025-09-06 22:51:00
+date: 2025-09-06 13:51:00
 category: career
 thumbnail: './images/finding-my-path-through-career-changes.png'
 draft: false
