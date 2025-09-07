@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { useLoaderData, type MetaFunction } from 'react-router';
+import { Footer } from '~/components/footer/Footer';
 import { Logo } from '~/components/icon/Logo';
 import { ArticlesSection } from '~/modules/article/articles-section';
 import { articleQuery } from '~/queries/article';
@@ -33,6 +34,7 @@ export default function HomePage() {
       <p className={styles.post}>{BlogConfig.heroText}</p>
       <ArrowButton>more</ArrowButton>
       <ArticlesSection title={<h3>Recent articles</h3>} articles={articles} />
+      <Footer />
     </section>
   );
 }
