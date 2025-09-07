@@ -1,14 +1,12 @@
-import { SVGIcon } from '../icon/SVGIcon';
+import { ContactList } from '~/modules/contact/ContactList';
+import { Subscribe } from '../subscribe/Subscribe';
 import * as styles from './styles.css';
 
 export function Footer() {
   return (
     <footer className={styles.footer}>
-      <div className={styles.iconContainer}>
-        <a href="/rss.xml" className={styles.iconLink} aria-label="RSS 피드" target="_blank">
-          <SVGIcon.RSS />
-        </a>
-      </div>
+      <ContactList />
+      <Subscribe />
     </footer>
   );
-} 
+}

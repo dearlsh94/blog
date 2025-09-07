@@ -2,14 +2,18 @@ import { SVGIcon } from '~/components/icon/SVGIcon';
 import BlogConfig from '../../../blog.config';
 import * as styles from './styles.css';
 
-export function ContactList() {
+interface ContactListProps {
+  size?: number;
+}
+
+export function ContactList({ size = 20 }: ContactListProps) {
   return (
     <div className={styles.rowlist}>
       <Anchor label="GitHub 링크" href={BlogConfig.contacts.github}>
-        <SVGIcon.GitHub />
+        <SVGIcon.GitHub width={size} height={size} />
       </Anchor>
       <Anchor label="Linkedin 링크" href={BlogConfig.contacts.linkedin}>
-        <SVGIcon.LinkedIn />
+        <SVGIcon.LinkedIn width={size} height={size} />
       </Anchor>
     </div>
   )

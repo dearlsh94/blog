@@ -7,20 +7,5 @@ export const footer = style({
   display: 'flex',
   justifyContent: 'flex-start',
   alignItems: 'center',
+  gap: '0.5rem',
 });
-
-export const iconContainer = style({
-  display: 'flex',
-  gap: '1rem',
-});
-
-export const iconLink = style({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  width: '16px',
-  height: '16px',
-  color: 'var(--color-text-secondary, #666)',
-  textDecoration: 'none',
-  borderRadius: '4px',
-}); 
