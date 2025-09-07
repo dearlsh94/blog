@@ -24,7 +24,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
     image: data?.article.thumbnail != null
       ? pathJoin(BlogConfig.site, 'articles', category, data.article.thumbnail)
       : pathJoin(BlogConfig.site, BlogConfig.image.main),
-    author: BlogConfig.author.twitter,
+    author: BlogConfig.author.displayName,
     site: BlogConfig.site,
     url: pathJoin(BlogConfig.site, 'articles', category, title),
     logo: pathJoin(BlogConfig.site, 'logo.jpeg'),
