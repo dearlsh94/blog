@@ -29,7 +29,7 @@ export function generateRss(
           <description><![CDATA[${entry.description}]]></description>
           <pubDate>${entry.pubDate}</pubDate>
           <link>${entry.link}</link>
-          ${entry.guid ? `<guid isPermaLink="false">${entry.guid}</guid>` : ''}
+          ${entry.guid ? `<guid isPermaLink="true">${entry.guid}</guid>` : ''}
         </item>`
     )
     .join('')}

@@ -15,8 +15,8 @@ export const loader: LoaderFunction = async () => {
       description: article.description ?? '',
       pubDate: new Date(article.lastUpdatedAt).toUTCString(),
       title: article.title,
-      link: `https://${BlogConfig.origin}/articles/${article.category}/${article.title}`,
-      guid: `https://${BlogConfig.origin}/articles/${article.category}/${article.title}`,
+      link: `https://${BlogConfig.origin}.com/articles/${article.category}/${article.permalink}`,
+      guid: `https://${BlogConfig.origin}.com/articles/${article.category}/${article.permalink}`,
     })),
   });
   
