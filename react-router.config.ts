@@ -17,37 +17,47 @@ interface Manifest {
 const manifestPath = path.join(__dirname, '.generated/articles/manifest.json');
 const manifestContent = fs.readFileSync(manifestPath, 'utf-8');
 const manifest: Manifest = JSON.parse(manifestContent) as Manifest;
-const articles = JSON.parse(manifest.articles) as Article[]
+const articles = JSON.parse(manifest.articles) as Article[];
 
 // Process each article from manifest to create prerender paths
-const articlePaths = articles.map((article: Article) => {
-  try {
-    if (!article.category) {
-      console.warn('Warning: Missing required fields in article:', {
-        category: article.category,
-        permalink: article.permalink,
-        title: article.title
-      });
+const articlePaths = articles
+  .map((article: Article) => {
+    try {
+      if (!article.category) {
+        console.warn('Warning: Missing required fields in article:', {
+          category: article.category,
+          permalink: article.permalink,
+          title: article.title,
+        });
+      }
+
+      const category = encodeURIComponent(article.category || '');
+      const slug = encodeURIComponent(article.permalink || article.title || '');
+
+      return `/articles/${category}/${slug}`;
+    } catch (error) {
+      console.error('Error processing article:', error);
+
+      return '';
     }
+  })
+  .filter((path: string) => path !== '');
 
-    const category = encodeURIComponent(article.category || '');
-    const slug = encodeURIComponent(article.permalink || article.title || '');
-
-    return `/articles/${category}/${slug}`;
-  } catch (error) {
-    console.error('Error processing article:', error);
-
-    return '';
-  }
-}).filter((path: string) => path !== '');
-
-export default {
+// NOTE:
+// This is not working as expected.
+// See:
+// https://github.com/remix-run/react-router/issues/14130
+export const usePrerenderConfig = {
   ssr: true,
   prerender: () => [
     '/',
     '/robots.txt',
     '/rss.xml',
     '/articles',
-    ...articlePaths
+    ...articlePaths,
   ],
+};
+
+export default {
+  ssr: true,
 } satisfies Config;
