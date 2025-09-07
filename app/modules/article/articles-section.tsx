@@ -1,6 +1,6 @@
-import { Link } from 'react-router';
 import { Article } from 'content-layer/article/types';
 import { ReactNode } from 'react';
+import { Link } from 'react-router';
 import * as styles from './styles.css';
 
 export interface ArticlesSectionProps {

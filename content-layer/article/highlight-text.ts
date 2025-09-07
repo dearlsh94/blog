@@ -7,6 +7,17 @@ interface TextNode extends Node {
   processed?: boolean;
 }
 
+interface ElementNode extends Node {
+  type: 'element';
+  tagName: string;
+  properties: { className?: string[] };
+  children: (TextNode | ElementNode)[];
+}
+
+interface ParentNode extends Node {
+  children: (TextNode | ElementNode)[];
+}
+
 // Highlighted text regex pattern - matches ==text== syntax
 // Updated to handle multiline text with the 's' flag (dotAll)
 const HIGHLIGHT_REGEX = /==([^=]+)==/gs;
@@ -36,7 +47,7 @@ export function highlightText(options: HighlightTextOptions = {}) {
     // Track processed nodes to avoid infinite recursion
     const processedNodes = new Set();
     
-    visit(tree, 'text', (node: TextNode, index: number, parent: any) => {
+    visit(tree, 'text', (node: TextNode, index: number, parent: ParentNode | null) => {
       // Skip if already processed
       if (processedNodes.has(node) || !node.value) {
         return;
@@ -53,7 +64,7 @@ export function highlightText(options: HighlightTextOptions = {}) {
       // Reset regex state
       HIGHLIGHT_REGEX.lastIndex = 0;
       
-      const parts: (TextNode | {type: string, tagName: string, properties: {className: string[]}, children: TextNode[]})[] = [];
+      const parts: (TextNode | ElementNode)[] = [];
       let lastIndex = 0;
       let match;
       
@@ -97,7 +108,7 @@ export function highlightText(options: HighlightTextOptions = {}) {
           } as TextNode;
           processedNodes.add(firstTextNode);
           
-          const childrenNodes: any[] = [firstTextNode];
+          const childrenNodes: (TextNode | ElementNode)[] = [firstTextNode];
           
           // Add <br> and text nodes for remaining parts
           for (let i = 1; i < contentParts.length; i++) {
@@ -107,7 +118,7 @@ export function highlightText(options: HighlightTextOptions = {}) {
               tagName: 'br',
               properties: {},
               children: []
-            });
+            } as ElementNode);
             
             // Add text node
             const lineTextNode = {
@@ -126,7 +137,7 @@ export function highlightText(options: HighlightTextOptions = {}) {
               className: [`highlight-text--${color}`]
             },
             children: childrenNodes
-          });
+          } as ElementNode);
         } else {
           // Process normal content without newlines (unchanged)
           const highlightTextNode = { 
@@ -142,7 +153,7 @@ export function highlightText(options: HighlightTextOptions = {}) {
               className: [`highlight-text--${color}`]
             },
             children: [highlightTextNode]
-          });
+          } as ElementNode);
         }
         
         lastIndex = endIndex;

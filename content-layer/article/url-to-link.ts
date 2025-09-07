@@ -7,6 +7,17 @@ interface TextNode extends Node {
   processed?: boolean;
 }
 
+interface ElementNode extends Node {
+  type: 'element';
+  tagName: string;
+  properties: { href: string, target: string, rel: string };
+  children: TextNode[];
+}
+
+interface ParentNode extends Node {
+  children: (TextNode | ElementNode)[];
+}
+
 // URL regex pattern
 const URL_REGEX = /https?:\/\/[^\s<>]+[^\s<>.,;:?!)"']/g;
 
@@ -16,7 +27,7 @@ export function urlToLink() {
     // Track processed nodes to avoid infinite recursion
     const processedNodes = new Set();
     
-    visit(tree, 'text', (node: TextNode, index: number, parent: any) => {
+    visit(tree, 'text', (node: TextNode, index: number, parent: ParentNode | null) => {
       // Skip if already processed
       if (processedNodes.has(node) || !node.value) {
         return;
@@ -33,7 +44,7 @@ export function urlToLink() {
       // Reset regex state
       URL_REGEX.lastIndex = 0;
       
-      const parts: (TextNode | {type: string, tagName: string, properties: {href: string}, children: TextNode[]})[] = [];
+      const parts: (TextNode | ElementNode)[] = [];
       let lastIndex = 0;
       let match;
       
@@ -63,9 +74,9 @@ export function urlToLink() {
         parts.push({
           type: 'element',
           tagName: 'a',
-          properties: { href: url, target: '_blank', rel: 'noopener noreferrer' } as any,
+          properties: { href: url, target: '_blank', rel: 'noopener noreferrer' },
           children: [linkTextNode]
-        });
+        } as ElementNode);
         
         lastIndex = endIndex;
       }

@@ -1,7 +1,7 @@
-
 import type { MetaFunction } from 'react-router';
 import { LoaderFunctionArgs, redirect, useLoaderData } from 'react-router';
 import { pencileIcon } from '~/assets/icon/pencil';
+import { Subscribe } from '~/components/subscribe/Subscribe';
 import { ArticlesSection } from '~/modules/article/articles-section';
 import { ContactList } from '~/modules/contact/ContactList';
 import { articleQuery } from '~/queries/article';
@@ -14,16 +14,22 @@ import * as styles from './article.css';
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
   const { category, title } = data?.article ?? {};
-  
+
   invariant(category != null, '\'category\' is required');
   invariant(title != null, '\'title\' is required');
 
   return generateMeta({
     title: [title, BlogConfig.seo.title],
     description: data?.article.description ?? BlogConfig.seo.description,
-    image: data?.article.thumbnail != null
-      ? pathJoin(BlogConfig.site, 'articles', category, data.article.thumbnail)
-      : pathJoin(BlogConfig.site, BlogConfig.image.main),
+    image:
+      data?.article.thumbnail != null
+        ? pathJoin(
+          BlogConfig.site,
+          'articles',
+          category,
+          data.article.thumbnail
+        )
+        : pathJoin(BlogConfig.site, BlogConfig.image.main),
     author: BlogConfig.author.displayName,
     site: BlogConfig.site,
     url: pathJoin(BlogConfig.site, 'articles', category, title),
@@ -38,11 +44,12 @@ export async function loader({ params }: LoaderFunctionArgs) {
   invariant(category != null, '\'category\' is required');
   invariant(title != null, '\'title\' is required');
 
-  const [articleByPermalink, articleByTitle, recentArticles] = await Promise.all([
-    articleQuery.getArticleByPermalink(title),
-    articleQuery.getArticle(category, title),
-    articleQuery.getArticles({ count: 5 }),
-  ]);
+  const [articleByPermalink, articleByTitle, recentArticles] =
+    await Promise.all([
+      articleQuery.getArticleByPermalink(title),
+      articleQuery.getArticle(category, title),
+      articleQuery.getArticles({ count: 5 }),
+    ]);
 
   const article = articleByPermalink ?? articleByTitle;
 
@@ -55,7 +62,14 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
 export default function ArticlePage() {
   const {
-    article:{ category, title, content, lastUpdatedAt, readingTime, permalink },
+    article: {
+      category,
+      title,
+      content,
+      lastUpdatedAt,
+      readingTime,
+      permalink,
+    },
     recentArticles,
   } = useLoaderData<typeof loader>();
 
@@ -65,17 +79,12 @@ export default function ArticlePage() {
         <span className={styles.category}>{category}</span>
         <a
           className={styles.editButton}
-          title='edit'
+          title="edit"
           href={BlogConfig.content.source + category + '/' + permalink + '.md'}
-          target='_blank'
-          rel='noopener noreferrer'
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <img
-            src={pencileIcon}
-            alt='edit button'
-            width='18px'
-            height='18px'
-          />
+          <img src={pencileIcon} alt="edit button" width="18px" height="18px" />
         </a>
       </div>
       <h1 className={styles.h1}>{title}</h1>
@@ -104,7 +113,7 @@ export default function ArticlePage() {
 
 function BackButton() {
   return (
-    <a href='/articles' className={styles.backButton}>
+    <a href="/articles" className={styles.backButton}>
       ← Back to /articles
     </a>
   );

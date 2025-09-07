@@ -3,9 +3,13 @@ import { colors } from '~/styles/colors';
 import { common } from '~/styles/element.css';
 import { flex, gap } from '~/styles/util.css';
 
-export const root = style([flex('column'), gap(0.7), {
-  marginBottom: '8rem',
-}]);
+export const root = style([
+  flex('column'),
+  gap(0.7),
+  {
+    marginBottom: '8rem',
+  },
+]);
 
 export const category = style({
   fontSize: '0.8rem',
@@ -31,17 +35,20 @@ export const editButton = style({
   transition: 'opacity 0.3s',
   ':hover': {
     opacity: 0.9,
-  }
+  },
 });
 
-export const h1 = style({
-});
+export const h1 = style({});
 
-export const description = style([flex('row'), gap(0.5) ,{
-  fontSize: '0.9rem',
-  color: colors.gray600,
-  margin: 0,
-}])
+export const description = style([
+  flex('row'),
+  gap(0.5),
+  {
+    fontSize: '0.9rem',
+    color: colors.gray600,
+    margin: 0,
+  },
+]);
 
 export const updatedTime = style({
   color: 'inherit',
@@ -51,12 +58,15 @@ export const readingTime = style({
   color: 'inherit',
 });
 
-export const backButton = style([common.anchor, {
-  display: 'block',
-  marginTop: '6rem',
-  fontSize: '1rem',
-  textDecoration: 'underline'
-}]);
+export const backButton = style([
+  common.anchor,
+  {
+    display: 'block',
+    marginTop: '6rem',
+    fontSize: '1rem',
+    textDecoration: 'underline',
+  },
+]);
 
 export const icons = style({
   display: 'flex',
