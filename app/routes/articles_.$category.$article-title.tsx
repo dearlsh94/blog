@@ -88,8 +88,14 @@ export default function ArticlePage() {
       <article dangerouslySetInnerHTML={{ __html: content }} />
       <hr />
       <footer>
-        <ContactList />
-        <ArticlesSection title={<h5>Recent articles</h5>} articles={recentArticles} />
+        <div className={styles.icons}>
+          <ContactList />
+          <Subscribe />
+        </div>
+        <ArticlesSection
+          title={<h5>Recent articles</h5>}
+          articles={recentArticles}
+        />
         <BackButton />
       </footer>
     </section>

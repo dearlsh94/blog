@@ -57,3 +57,10 @@ export const backButton = style([common.anchor, {
   fontSize: '1rem',
   textDecoration: 'underline'
 }]);
+
+export const icons = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-start',
+  gap: '0.5rem',
+});
