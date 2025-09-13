@@ -1,4 +1,3 @@
-import { Analytics } from '@vercel/analytics/react';
 import type { LinksFunction } from 'react-router';
 import {
   Links,
@@ -50,7 +49,6 @@ export default function App() {
         </Layout>
         <ScrollRestoration />
         <Scripts />
-        <Analytics />
       </body>
     </html>
   );
