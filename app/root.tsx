@@ -36,12 +36,12 @@ export default function App() {
   return (
     <html lang="ko">
       <head>
+        <GoogleAnalyticsScripts id={BlogConfig.ga.id} />
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta property="og:site_name" content={BlogConfig.seo.name}></meta>
         <Meta />
         <Links />
-        <GoogleAnalyticsScripts id={BlogConfig.ga.id} />
       </head>
       <body>
         <Layout>
