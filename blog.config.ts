@@ -23,7 +23,7 @@ export default {
     extensions: ['**/*.png', '**/*.jpg', '**/*.jpeg'],
   },
   ga: {
-    id: 'G-TPFQF6SGEH' // G-XXXXXXXXXX
+    id: 'G-YK9YNZ05GD' // G-XXXXXXXXXX
   },
   comments: {
     repo: 'dearlsh94/blog-comments',
