@@ -20,16 +20,36 @@ import { createRSSLink } from './utils/rss/link';
 import { createSitemapLink } from './utils/sitemap/link';
 
 export const links: LinksFunction = () => [
-  { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css' },
-  { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css' },
-  { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/icon/favicon-32x32.png' },
-  { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/icon/favicon-16x16.png' },
+  {
+    rel: 'stylesheet',
+    href: 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css',
+  },
+  {
+    rel: 'stylesheet',
+    href: 'https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css',
+  },
+  {
+    rel: 'icon',
+    type: 'image/png',
+    sizes: '32x32',
+    href: '/icon/favicon-32x32.png',
+  },
+  {
+    rel: 'icon',
+    type: 'image/png',
+    sizes: '16x16',
+    href: '/icon/favicon-16x16.png',
+  },
   { rel: 'icon', href: '/favicon.ico' },
   { rel: 'preload', as: 'image', href: BlogConfig.image.main },
   { rel: 'manifest', href: '/icon/site.webmanifest' },
-  { rel: 'apple-touch-icon', sizes: '180x180', href: '/icon/apple-touch-icon.png' },
+  {
+    rel: 'apple-touch-icon',
+    sizes: '180x180',
+    href: '/icon/apple-touch-icon.png',
+  },
   createSitemapLink(),
-  createRSSLink()
+  createRSSLink(),
 ];
 
 export default function App() {
@@ -69,7 +89,8 @@ export function ErrorBoundary() {
   function parseError(error: unknown) {
     if (isRouteErrorResponse(error)) {
       return `${error.status} ${error.statusText}`;
-    }if (error instanceof Error) {
+    }
+    if (error instanceof Error) {
       return error.message;
     }
 
@@ -77,7 +98,7 @@ export function ErrorBoundary() {
   }
 
   return (
-    <html lang='ko'>
+    <html lang="ko">
       <head>
         <title>Oops!</title>
         <Meta />
