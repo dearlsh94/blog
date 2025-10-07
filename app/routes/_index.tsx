@@ -30,7 +30,7 @@ export default function HomePage() {
   
   return (
     <section className={styles.root}>
-      <Logo size={32} />
+      <Logo size={32} invert />
       <p className={styles.post}>{BlogConfig.heroText}</p>
       <ArrowButton>more</ArrowButton>
       <ArticlesSection title={<h3>Recent articles</h3>} articles={articles} />
