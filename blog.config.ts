@@ -34,5 +34,6 @@ export default {
   contacts: {
     github: 'https://github.com/dearlsh94',
     linkedin: 'https://www.linkedin.com/in/dearlsh94',
+    brunch: 'https://brunch.co.kr/@b22ccabb9fb248b'
   }
 };

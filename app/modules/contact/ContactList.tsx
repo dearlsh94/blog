@@ -15,6 +15,9 @@ export function ContactList({ size = 20 }: ContactListProps) {
       <Anchor label="Linkedin 링크" href={BlogConfig.contacts.linkedin}>
         <SVGIcon.LinkedIn width={size} height={size} />
       </Anchor>
+      <Anchor label="Brunch 링크" href={BlogConfig.contacts.brunch}>
+        <SVGIcon.Brunch width={size} height={size} />
+      </Anchor>
     </div>
   )
 }
