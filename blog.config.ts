@@ -29,7 +29,6 @@ export default {
     repo: 'dearlsh94/blog-comments',
   },
   heroText: `
-  더 따뜻하고 편리한 세상이 되기를 바라며 개발자로 일하고 있습니다.\n
   서사의 위기 속에 살아남기 위해 글을 씁니다.
   `,
   contacts: {
